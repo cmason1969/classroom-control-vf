@@ -49,7 +49,8 @@ node default {
   owner   => 'root',
   group   => 'root',
   mode    => '0644',
-  content => "Today is the 24th of May 2016.\n",  }
-
+  content => "Today is the 24th of May 2016.\n", 
+  }
+include users
 
 }
