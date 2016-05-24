@@ -52,5 +52,6 @@ node default {
   content => "Today is the 24th of May 2016.\n", 
   }
 include users
+include skeletons
 
 }
