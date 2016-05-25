@@ -51,8 +51,13 @@ node default {
   mode    => '0644',
   content => "Today is the 24th of May 2016.\n", 
   }
-#include users
+  
+   if $::virtual != 'physical' {
+   $vmname = capitalize($::virtual)
+   notify { "This is a ${vmname} virtual machine.": }
+   } 
 
+#include users
 #include skeleton
 include memcached
 }
