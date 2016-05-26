@@ -45,7 +45,7 @@ node default {
   
    $message = hiera('message')
     notify { $message: }
-   }
+
 
   
   notify { "Hello, my name is ${::hostname}": }
