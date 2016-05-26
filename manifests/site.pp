@@ -43,27 +43,17 @@ node default {
   # Example:
   #   class { 'my_class': }
   
-   $message = hiera('message')
-    notify { $message: }
+ node default {
+  class { 'nginx':
+    root => '/var/www/html',
+  } 
 
 
   
-  notify { "Hello, my name is ${::hostname}": }
   
-  file { '/etc/motd':
-  ensure  => file,
-  owner   => 'root',
-  group   => 'root',
-  mode    => '0644',
-  content => "Today is the 24th of May 2016.\n", 
-  }
   
-   if $::virtual != 'physical' {
-   $vmname = capitalize($::virtual)
-   notify { "This is a ${vmname} virtual machine.": }
-   } 
 
 #include users
 #include skeleton
-include memcached
+
 }
